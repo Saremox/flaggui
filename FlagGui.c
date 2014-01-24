@@ -135,7 +135,7 @@ int main(int argc, char **argv)
     gtk_signal_connect(GTK_OBJECT(fenster), "delete_event", GTK_SIGNAL_FUNC(delete_cb),NULL);
     gtk_signal_connect(GTK_OBJECT(button2), "clicked", GTK_SIGNAL_FUNC(addl_clicked),NULL);
     gtk_signal_connect(GTK_OBJECT(button3), "clicked", GTK_SIGNAL_FUNC(subl_clicked),NULL);
-    gtk_signal_connect(GTK_OBJECT(button4), "clicked", GTK_SIGNAL_FUNC(ende_cb),NULL);
+    gtk_signal_connect(GTK_OBJECT(button4), "clicked", GTK_SIGNAL_FUNC(ende_cb),GTK_OBJECT(fenster));
     gtk_signal_connect(GTK_OBJECT(button1), "clicked", GTK_SIGNAL_FUNC(reset_clicked),NULL);
 
     /* Window Setup */
@@ -144,11 +144,11 @@ int main(int argc, char **argv)
     
     gtk_container_set_border_width(GTK_CONTAINER(fenster),25);
 
-    vbox    = gtk_vbox_new(FALSE,0);
-    hbox    = gtk_hbox_new(FALSE,0);
-    EaxBox  = gtk_hbox_new(FALSE,0);
-    EbxBox  = gtk_hbox_new(FALSE,0);
-    FlagBox = gtk_hbox_new(FALSE,0);
+    vbox    = gtk_vbox_new(FALSE,5);
+    hbox    = gtk_hbox_new(FALSE,5);
+    EaxBox  = gtk_hbox_new(FALSE,5);
+    EbxBox  = gtk_hbox_new(FALSE,5);
+    FlagBox = gtk_hbox_new(FALSE,5);
 
     gtk_box_pack_start(GTK_BOX(FlagBox), CF_Bit,     TRUE,  TRUE, 10);
     gtk_box_pack_start(GTK_BOX(FlagBox), OF_Bit,     TRUE,  TRUE, 10);
@@ -156,8 +156,6 @@ int main(int argc, char **argv)
     gtk_box_pack_start(GTK_BOX(hbox),    button3,    TRUE , TRUE ,10);
     gtk_box_pack_start(GTK_BOX(hbox),    button1,    TRUE , TRUE ,10);
     gtk_box_pack_start(GTK_BOX(hbox),    button4,    TRUE , TRUE ,10);
-    gtk_box_pack_start(GTK_BOX(EaxBox),  lEax,       FALSE, FALSE,10);
-    gtk_box_pack_start(GTK_BOX(EaxBox),  lEax,       FALSE, FALSE,10);
     gtk_box_pack_start(GTK_BOX(EaxBox),  lEax,       FALSE, FALSE,10);
     gtk_box_pack_start(GTK_BOX(EaxBox),  inputEax  , FALSE, FALSE,10);
     gtk_box_pack_start(GTK_BOX(EbxBox),  lEbx,       FALSE, FALSE,10);
